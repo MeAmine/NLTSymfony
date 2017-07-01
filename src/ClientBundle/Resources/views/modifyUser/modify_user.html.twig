@@ -1,0 +1,31 @@
+{% extends 'ClientBundle::index.html.twig' %}
+
+{% block body %}
+    {{ include('ClientBundle:navbar:navbar.html.twig') }}
+    {{ form_start(form, { 'attr': {'class': 'userForm'} }) }}
+
+    <h1>{{ 'edit'|trans }}</h1>
+    <div class="fos_user_form">
+        <div class="form_group">
+            {{ form_label(form.nom, 'name'|trans) }}
+            {{ form_widget(form.nom) }}
+        </div>
+        <div class="form_group">
+            {{ form_label(form.prenom, 'firstName'|trans) }}
+            {{ form_widget(form.prenom) }}
+        </div>
+        <div class="form_group">
+            {{ form_label(form.email, 'email'|trans) }}
+            {{ form_widget(form.email) }}
+        </div>
+        <div class="form_group">
+            {{ form_label(form.departement, 'department'|trans) }}
+            {{ form_widget(form.departement) }}
+        </div>
+        <div class="form_group">
+            <button type="submit">{{ 'ok'|trans }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}

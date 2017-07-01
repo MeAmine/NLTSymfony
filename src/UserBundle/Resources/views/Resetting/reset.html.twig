@@ -1,0 +1,10 @@
+{% extends 'UserBundle::layout.html.twig' %}
+
+{% block fos_user_content %}
+    {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'userForm' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" class="reset_submit" value="{{ 'resetting.reset.submit'|trans }}" />
+    </div>
+    {{ form_end(form) }}
+{% endblock fos_user_content %}

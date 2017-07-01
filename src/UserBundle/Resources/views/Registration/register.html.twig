@@ -1,0 +1,14 @@
+{% extends 'UserBundle::layout.html.twig' %}
+
+{% block fos_user_content %}
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-register userForm'}}) }}
+    <h1>{{ 'register'|trans }}</h1><br />
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" class="register-submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+    <div class="register-help">
+        <a href="{{ path('fos_user_security_login') }}">{{ 'login'|trans }}</a> - <a href="{{ path('fos_user_resetting_request') }}">{{ 'forgot_password'|trans }}</a>
+    </div>
+    {{ form_end(form) }}
+{% endblock fos_user_content %}

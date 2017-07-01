@@ -1,0 +1,22 @@
+{% extends 'ClientBundle::index.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('client_send_mail') }}" method="post" class="userForm">
+        <h1>Envoie d'email</h1>
+        <div class="form_group">
+            <label for="mail">Email :</label>
+            <input type="email" placeholder="email" name="mail" />
+        </div>
+        <div class="form_group">
+            <label for="subject">Sujet :</label>
+            <input type="text" placeholder="sujet" name="subject" />
+        </div>
+        <div class="form_group">
+            <label for="content">Contenu :</label><br/>
+            <textarea placeholder="contenu" name="content"></textarea>
+        </div>
+        <div class="form_group">
+            <input type="submit" value="env" />
+        </div>
+    </form>
+{% endblock %}

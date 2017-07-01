@@ -1,0 +1,39 @@
+{% extends 'ClientBundle::index.html.twig' %}
+
+{% block body %}
+    {{ include('ClientBundle:navbar:navbar.html.twig') }}
+    <form action="{{ path('mailing_group_form_management', {'groupId': groupId}) }}" class="userForm" method="post">
+        <h1>Gestion de groupe</h1>
+        <div class="form_group">
+            <label for="users">{{ 'users'|trans }}</label><br>
+            <select multiple name="users[]" id="users">
+                {% for u in users %}
+                    <option value="{{ u.id }}">{{ u.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form_group">
+            <label for="newsletters">{{ 'newsletters'|trans }}</label><br>
+            <select multiple name="newsletters[]" id="newsletters">
+                {% for n in newsletters %}
+                    <option value="{{ n.id }}">{{ n.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form_group">
+            <label for="mailingGroup">{{ 'mailingGroup'|trans }}</label>
+            <select name="mailingGroup" id="mailingGroup">
+                {% for mg in mailingGroups %}
+                    <option value="{{ mg.id }}">{{ mg.label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form_group">
+            <label for="method">{{ 'method'|trans }}</label>
+            <select id="method" name="method">
+                <option value="0">{{ 'import'|trans }}</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default">{{ 'ok'|trans }}</button>
+    </form>
+{% endblock %}

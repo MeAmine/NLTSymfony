@@ -1,0 +1,10 @@
+{% extends 'UserBundle::layout.html.twig' %}
+
+{% block fos_user_content %}
+    <div class="userForm">
+        {{ 'registration.confirmed'|trans({'%username%': user.username}) }}<br />
+        {% if targetUrl %}
+            <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+        {% endif %}
+    </div>
+{% endblock fos_user_content %}

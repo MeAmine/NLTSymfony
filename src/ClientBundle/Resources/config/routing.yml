@@ -1,0 +1,55 @@
+client_homepage:
+    path:     /
+    defaults: { _controller: ClientBundle:Default:index }
+
+client_form_mail:
+    path:     /form_mail
+    defaults: { _controller: ClientBundle:Mailing:index }
+
+client_send_mail:
+    path:     /send
+    defaults: { _controller: ClientBundle:Mailing:send }
+
+user_form_csv:
+    path:     /form_csv
+    defaults: { _controller: UserBundle:User:addForm }
+
+user_form_add:
+    path:     /form_add_user
+    defaults: { _controller: UserBundle:User:addUser }
+
+user_form_modify:
+    path:     /form_modify/{userId}
+    defaults: { _controller: UserBundle:User:modifyForm }
+
+choose_mode_add_user:
+    path:     /form_select_mode
+    defaults: { _controller: UserBundle:User:selectMode }
+
+mailing_group_form:
+    path:     /form_choose_group
+    defaults: { _controller: ClientBundle:MailingGroup:groupForm }
+
+mailing_group_form_management:
+    path:     /form_group_management/{groupId}
+    defaults: { _controller: ClientBundle:MailingGroup:groupManagement }
+
+newsletter_create:
+    path:     /create_newsletter
+    defaults: { _controller: ClientBundle:Newsletter:newsletterForm }
+
+newsletter_choose_mailing_group:
+    path:     /choose_mailing_group
+    defaults: { _controller: ClientBundle:Newsletter:chooseForNewsletter }
+
+newsletter_send_part_1:
+    path:     /send_newsletter/{idAction}
+    defaults: { _controller: ClientBundle:Newsletter:sendNewsletter }
+
+newsletter_send_part_2:
+    path:     /send_newsletter/{idMailingGroup}/{idAction}
+    defaults: { _controller: ClientBundle:Newsletter:sendNewsletter }
+
+user_unsubscribe:
+    path:     /unsubscribe/{userMail}
+    defaults: { _controller: UserBundle:User:unsubscribe }

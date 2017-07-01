@@ -1,0 +1,52 @@
+<?php
+    namespace ClientBundle\Entity;
+
+    use Doctrine\ORM\Mapping as ORM;
+    use FOS\UserBundle\Model\User as BaseUser;
+
+    /**
+     * @ORM\Entity
+     * @ORM\Table(name="user")
+     */
+    class User extends BaseUser
+    {
+        /**
+         * @ORM\Id
+         * @ORM\Column(type="integer")
+         * @ORM\GeneratedValue(strategy="AUTO")
+         */
+        protected $id;
+
+        /**
+         * @ORM\Column(type="string", nullable=true)
+         */
+        protected $nom;
+
+        /**
+         * @ORM\Column(type="string", nullable=true)
+         */
+        protected $prenom;
+
+        /**
+         * @ORM\ManyToOne(targetEntity="Departement", inversedBy="users")
+         * @ORM\JoinColumn(name="departement_id", referencedColumnName="id")
+         */
+        private $departement;
+
+        /**
+         * @ORM\ManyToOne(targetEntity="Employee", inversedBy="users")
+         * @ORM\JoinColumn(name="employee_id", referencedColumnName="id")
+         */
+        private $employee;
+
+        /**
+         * @ORM\OneToMany(targetEntity="Infos", mappedBy="user")
+         */
+        private $emails;
+
+        /**
+         * @ORM\OneToMany(targetEntity="Behove", mappedBy="users")
+         */
+        private $adminGroup;
+    }
+
