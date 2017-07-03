@@ -1,0 +1,107 @@
+<a  name="services"></a>
+<div class="content-section-a">
+
+  <div class="container">
+    <div class="row">
+      <div class="content">
+        
+       <h1 id="head">NewsLetter</h1>
+       <div id="editparent">
+        <div id='editControls' style='text-align:center; padding:5px;'>
+          <div class='btn-group'>
+            <a class='btn' data-role='undo' href='#' onclick="return false"><i class='icon-undo'></i></a>
+            <a class='btn' data-role='redo' href='#' onclick="return false"><i class='icon-repeat'></i></a>
+          </div>
+          <div class='btn-group'>
+            <a class='btn' data-role='bold' href='#' onclick="return false"><b>Bold</b></a>
+            <a class='btn' data-role='italic' href='#' onclick="return false"><em>Italic</em></a>
+            <a class='btn' data-role='underline' href='#' onclick="return false"><u><b>U</b></u></a>
+            <a class='btn' data-role='strikeThrough' href='#' onclick="return false"><strike>abc</strike></a>
+          </div>
+          <div class='btn-group'>
+            <a class='btn' data-role='justifyLeft' href='#' onclick="return false"><i class='icon-align-left'></i></a>
+            <a class='btn' data-role='justifyCenter' href='#' onclick="return false"><i class='icon-align-center'></i></a>
+            <a class='btn' data-role='justifyRight' href='#' onclick="return false"><i class='icon-align-right'></i></a>
+            <a class='btn' data-role='justifyFull' href='#' onclick="return false"><i class='icon-align-justify'></i></a>
+          </div>
+          <div class='btn-group'>
+            <a class='btn' data-role='indent' href='#' onclick="return false"><i class='icon-indent-right'></i></a>
+            <a class='btn' data-role='outdent' href='#' onclick="return false"><i class='icon-indent-left'></i></a>
+          </div>
+          <div class='btn-group'>
+            <a class='btn' data-role='insertUnorderedList' href='#' onclick="return false"><i class='icon-list-ul'></i></a>
+            <a class='btn' data-role='insertOrderedList' href='#' onclick="return false"><i class='icon-list-ol'></i></a>
+          </div>
+          <div class='btn-group'>
+            <a class='btn' data-role='h1' href='#' onclick="return false">h<sup>1</sup></a>
+            <a class='btn' data-role='h2' href='#' onclick="return false">h<sup>2</sup></a>
+            <a class='btn' data-role='p' href='#'>p</a>
+          </div>
+          <div class='btn-group'>
+            <a class='btn' data-role='subscript' href='#' onclick="return false"><i class='icon-subscript'></i></a>
+            <a class='btn' data-role='superscript' href='#' onclick="return false"><i class='icon-superscript'></i></a>
+          </div>
+        </div>
+        <div id='editor' style='' contenteditable>
+          
+          
+
+        </div>
+        
+      </div>
+
+      <form action="{{ path("pnl_index_envoi")}}" method="post">
+       <textarea id="textarea" hidden="true" name="textarea"></textarea>
+
+      <center>
+        <br>
+        <span class="custom-dropdown">
+          <select name="groupe">
+           {% for groupe in groupes %}
+           <option Value="{{groupe.id}}">{{groupe.nom}}</option>
+           {% endfor %}
+         </select>
+
+       </span>
+
+     </center>
+                  <center>
+         <div class="input-group" id="inputgroupText">
+          <input type="text" id="subjectText" placeholder="sujet" >
+          <input type="text" id="senderNameText" placeholder="adresse d'envoi" >
+        </div>
+      </center>
+     <br>
+     <div class="col-lg-6 col-lg-offset-3">
+       <input onclick="textareaAutoComplete()" class="btn btn-primary btn-block"  type="submit" id="_submit" name="_submit" value="Envoyer" />
+
+     </div>
+   </form>
+   <div class="col-lg-6 col-lg-offset-3">
+    <button onclick="showCampagne()" class="btn btn-primary btn-block">Ajouter à une campagne</button>
+  </div>
+  <div class="CampagneDiv"><center>
+    <form action="{{ path("pnl_index_addNLToCampagne")}}" method="post">
+      <span class="custom-dropdown">
+        <select name="campagne">
+         {% for campagne in campagnes %}
+         <option Value="{{campagne.id}}">{{campagne.nom}}</option>
+         {% endfor %}
+       </select>
+       <textarea id="textareaCampagne" hidden="true" name="textareaCampagne"></textarea>
+       <textarea id="subjectCampagne" hidden="true" name="subjectCampagne"></textarea>
+       <textarea id="senderNameCampagne" hidden="true" name="senderNameCampagne"></textarea>
+
+       <div class="col-lg-6 col-lg-offset-3">
+        <input onclick="CampagneAutoComplete()" class="btn btn-success btn-block"  type="submit" id="_submit" name="_submit" value="Ajouter" />
+      </div>  
+    </form>
+  </center>
+</div>
+</div>
+
+</div>
+<!-- /.container -->
+
+</div>
+    <!-- /.content-section-a -->

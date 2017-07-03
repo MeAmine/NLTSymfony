@@ -1,0 +1,90 @@
+<form action="{{ path("pnl_index_clientmanagement")}}" method="post">     
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Entreprise</th>
+                <th>Civilité</th>
+                <th>Ville - Pays</th>
+                <th> Groupe</th>
+                <th>Selectionner</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for client in clients %}
+            {% if client.isClient == 1 %}
+            <tr>
+                <td>{{client.nom}}</td>
+                <td>{{client.prenom}}</td>
+                <td>{{client.email}}</td>
+                <td>{{client.entreprise}}</td>
+                <td>{{client.civilite}}</td>
+                <td>{{client.ville}} - {{client.pays.countryName}}</td>
+                <td> 
+                {% for groupes in client.groupe %}
+                    - {{groupes.nom}} - 
+                {% endfor %}
+                </td>
+
+                <td> <label><input type="checkbox"  name="clientList[]" value="{{client.id}}"></label></td>
+            </tr> 
+            {% else %}
+              <tr style="color : red;">
+                <td>{{client.nom}}</td>
+                <td>{{client.prenom}}</td>
+                <td>{{client.email}}</td>
+                <td>{{client.entreprise}}</td>
+                <td>{{client.civilite}}</td>
+                <td>{{client.ville}} - {{client.pays.countryName}}</td>
+                <td> 
+                {% for groupes in client.groupe %}
+                    - {{groupes.nom}} - 
+                {% endfor %}
+                </td>
+
+                <td> <label><input type="checkbox"  name="clientList[]" value="{{client.id}}"></label></td>
+            </tr> 
+            {% endif %} 
+            {% endfor%}          
+        </tbody>
+    </table>
+    <div class="col-lg-12">
+    <center>
+    <span class="custom-dropdown">
+    <b>Groupe : </b>
+    <select name="groupe">
+       {% for groupe in groupes %}
+      <option value="{{groupe.id}}">{{groupe.nom}}</option>
+       {% endfor %}
+    </select>
+    <br/>
+    <b>Campagne : </>
+    <select name="campagne">
+       {% for campagne in campagnes %}
+        <option value="{{campagne.id}}">{{campagne.nom}}</option>
+       {% endfor %}
+    </select>
+    </span>
+    </center>
+    </div>
+      <div class="col-lg-3">
+   <input class="btn btn-info btn-block"  type="submit" id="_submit" name="_submit" value="Ajouter au groupe" />
+     </div>
+    <div class="col-lg-2">
+   <input class="btn btn-info btn-block"  type="submit" id="_submit" name="_submit" value="Ajouter à la campagne" />
+     </div>
+     <div class="col-lg-3">
+   <input class="btn btn-danger btn-block"  type="submit" id="_submit" name="_submit" value="Supprimer" />
+   </div>
+     <div class="col-lg-3">
+     <input class="btn btn-warning btn-block"  type="submit" id="_submit" name="_submit" value="Modifier" />
+   </div> 
+   <div class="col-lg-3">
+     <input class="btn btn-success btn-block"  type="submit" id="_submit" name="_submit" value="Ajouter un client" />
+   </div>     
+   </form>
+
+

@@ -1,6 +1,17 @@
-client:
-    resource: "@ClientBundle/Resources/config/routing.yml"
-    prefix:  /
+pnl_excel_to_bdd:
+    resource: "@PNLExcelToBDDBundle/Resources/config/routing.yml"
+    prefix:   /
 
+pn_lindex:
+    resource: "@PNLindexBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+admin_area:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix: /admin

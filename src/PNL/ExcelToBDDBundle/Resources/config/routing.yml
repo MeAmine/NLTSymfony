@@ -1,0 +1,7 @@
+pnl_excel_to_bdd_process:
+    path:     /fr/excelImport{path}
+    defaults: { _controller: PNLExcelToBDDBundle:Default:process }
+pnl_excel_to_bdd_homepage:
+    path:     /fr/ajoutClientExcel
+    defaults: { _controller: PNLExcelToBDDBundle:Default:index }
+

@@ -1,7 +1,7 @@
 /app/config/parameters.yml
 /build/
 /phpunit.xml
-/var/
+/var/*
 !/var/cache
 /var/cache/*
 !var/cache/.gitkeep
@@ -12,13 +12,5 @@
 /var/sessions/*
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
-/web/bundles/
-/nbproject/private/
-/nbproject/
-/tests/
 /vendor/
-.idea/
-/composer.lock
-
-app/bootstrap.php.cache
-
+/web/bundles/

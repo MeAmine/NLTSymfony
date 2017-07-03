@@ -1,0 +1,60 @@
+pnl_index_homepage:
+    path:     /
+    defaults: { _controller: PNLindexBundle:Default:index }    
+pnl_index_client:
+    path:     /fr/client
+    defaults: { _controller: PNLindexBundle:Default:client}
+pnl_index_clientDuGroupe:
+    path:     /fr/clientByGroupe/{groupeId}
+    defaults: { _controller: PNLindexBundle:Default:clientDuGroupe}
+pnl_index_newsletter:
+    path:     /fr/NewsLetter
+    defaults: { _controller: PNLindexBundle:Default:newsletter}
+pnl_index_envoi: 
+    path:     /fr/Process
+    defaults: { _controller: PNLindexBundle:Default:envoi}
+pnl_index_clientmanagement: 
+    path:     /fr/Management
+    defaults: { _controller: PNLindexBundle:Default:clientgroupe}
+pnl_index_ajoutClient: 
+    path:     /fr/AjoutClient
+    defaults: { _controller: PNLindexBundle:Default:ajoutClient}
+pnl_index_updateClient:
+    path:     /fr/ModificationClient/{clientsId}
+    defaults: { _controller: PNLindexBundle:Default:updateClient}
+pnl_index_groupe:
+    path:     /fr/groupe
+    defaults: { _controller: PNLindexBundle:Default:groupe}
+pnl_index_campagne:
+    path:     /fr/campagne
+    defaults: { _controller: PNLindexBundle:Default:campagne}
+pnl_index_updateGroupe:
+    path:     /fr/ModificationGroupe/{groupeId}
+    defaults: { _controller: PNLindexBundle:Default:updateGroupe}
+pnl_index_groupemanagement: 
+    path:     /fr/groupeManagement
+    defaults: { _controller: PNLindexBundle:Default:groupeManagement}
+pnl_index_ajoutGroupe: 
+    path:     /fr/AjoutGroupe
+    defaults: { _controller: PNLindexBundle:Default:ajoutGroupe}
+pnl_index_desactivatonClient: 
+    path:     /DesactiveClient/{cryptClient}
+    defaults: { _controller: PNLindexBundle:Default:desactiveClient} 
+pnl_index_addNLToCampagne: 
+    path:     /fr/AjouterNewLetterALaCampagne
+    defaults: { _controller: PNLindexBundle:Default:addNLToCampagne}
+pnl_index_campagnemanagement:  
+    path:     /fr/campagnemanagement
+    defaults: { _controller: PNLindexBundle:Default:campagnemanagement}
+pnl_index_ajoutCampagne: 
+    path:     /fr/AjoutCampagne
+    defaults: { _controller: PNLindexBundle:Default:ajoutCampagne}
+pnl_index_updateCampagne:
+    path:     /fr/ModificationCampagne/{campagneId}
+    defaults: { _controller: PNLindexBundle:Default:updateCampagne}
+pnl_index_NewsletterCampagneSend:
+    path:     /fr/CampagneSend/{campagneId}
+    defaults: { _controller: PNLindexBundle:Default:CampagneSend}
+pnl_index_NewsletterCampagne:
+    path:     /fr/NewsLetterByGroupe/{campagneId}
+    defaults: { _controller: PNLindexBundle:Default:newsletterCampagne}

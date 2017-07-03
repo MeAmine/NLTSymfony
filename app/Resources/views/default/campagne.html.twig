@@ -1,0 +1,43 @@
+<form action="{{ path("pnl_index_campagnemanagement")}}" method="post">     
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date de création</th>
+                <th>Date de Fin</th>
+                <th>Selectionner</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for campagne in campagnes %}
+            <tr>
+                <td>{{campagne.nom}}</td>  
+                <td>{{campagne.dateDebut|date("m/d/Y")}}</td>                
+                <td>{{campagne.dateFin|date("m/d/Y")}}</td>
+                <td> <label><input type="radio"  name="camapgneList[]" value="{{campagne.id}}"></label></td>
+             </tr>     
+
+        {% endfor%}
+
+        </tbody>
+    </table>
+
+       <div class="col-lg-2">
+   <input class="btn btn-success btn-block"  type="submit" id="_submit" name="_submit" value="Ajouter une campagne" />
+     </div>
+     <div class="col-lg-2">
+   <input class="btn btn-success btn-block"  type="submit" id="_submit" name="_submit" value="Envoyer" />
+     </div>
+     <div class="col-lg-2">
+   <input class="btn btn-danger btn-block"  type="submit" id="_submit" name="_submit" value="Supprimer" />
+   </div>
+     <div class="col-lg-2">
+     <input class="btn btn-warning btn-block"  type="submit" id="_submit" name="_submit" value="Modifier" />
+   </div> 
+   <div class="col-lg-4">
+    <input class="btn btn-primary btn-block"  type="submit" id="_submit" name="_submit" value="Voir les newsletters de la campagne" />
+    </div>
+   </form>
+
+

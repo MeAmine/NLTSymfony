@@ -7,7 +7,23 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-        $bundles = [
+        $bundles = [ 
+        //External bundle
+            new FOS\UserBundle\FOSUserBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            // These are the other bundles the SonataAdminBundle relies on
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
+            // And finally, the storage and SonataAdminBundle
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+
+             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
+
+
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -15,11 +31,9 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
             new AppBundle\AppBundle(),
-            new ClientBundle\ClientBundle(),
-            new UserBundle\UserBundle(),
+            new PNL\indexBundle\PNLindexBundle(),
+            new PNL\ExcelToBDDBundle\PNLExcelToBDDBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
